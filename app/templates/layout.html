@@ -179,20 +179,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('crop_recommend') }}">Crop Recommendation</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer Advice</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('disease_prediction') }}">Disease Detection</a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link" href="{{ url_for('about') }}">About Project</a>
         </li>
+
+        {% if current_user.is_authenticated %}
+          <!-- Show these links only when user is logged in -->
+          
+          {% if current_user.is_admin %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin_dashboard') }}">Admin Panel</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+          </li>
+          {% endif %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('crop_recommend') }}">Crop Recommendation</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer Advice</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('disease_prediction') }}">Disease Detection</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-light ml-2" href="{{ url_for('logout') }}" style="border-radius: 5px; padding: 0.375rem 0.75rem;">Logout</a>
+          </li>
+        {% else %}
+          <!-- Show these links only when user is NOT logged in -->
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-light ml-2" href="{{ url_for('login') }}" style="border-radius: 5px; padding: 0.375rem 0.75rem;">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-success ml-2" href="{{ url_for('signup') }}" style="border-radius: 5px; padding: 0.375rem 0.75rem;">Sign Up</a>
+          </li>
+        {% endif %}
       </ul>
     </div>
   </div>
