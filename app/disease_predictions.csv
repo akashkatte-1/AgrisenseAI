@@ -1,0 +1,5 @@
+image,top1,top1_prob,top5
+images (1).jpg,"Pepper,_bell___Bacterial_spot",0.9309568405151367,"Pepper,_bell___Bacterial_spot:0.9310;Tomato___Early_blight:0.0258;Grape___Esca_(Black_Measles):0.0184;Tomato___Late_blight:0.0105;Tomato___Target_Spot:0.0074"
+images.jpg,Corn_(maize)___Common_rust_,0.8196143507957458,"Corn_(maize)___Common_rust_:0.8196;Strawberry___Leaf_scorch:0.1457;Pepper,_bell___Bacterial_spot:0.0242;Apple___Apple_scab:0.0055;Grape___Black_rot:0.0034"
+peruleaf.jpg,"Pepper,_bell___Bacterial_spot",0.8451858162879944,"Pepper,_bell___Bacterial_spot:0.8452;Corn_(maize)___Common_rust_:0.0920;Strawberry___Leaf_scorch:0.0310;Grape___Esca_(Black_Measles):0.0202;Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot:0.0062"
+test.jpg,Strawberry___Leaf_scorch,0.9915823340415955,"Strawberry___Leaf_scorch:0.9916;Peach___Bacterial_spot:0.0084;Pepper,_bell___Bacterial_spot:0.0000;Apple___Black_rot:0.0000;Grape___Leaf_blight_(Isariopsis_Leaf_Spot):0.0000"
