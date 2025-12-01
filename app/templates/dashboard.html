@@ -1,0 +1,155 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<section class="py-5" style="min-height: 70vh; background-color: #f5f5f5;">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="text-center mb-4">👨‍🌾 Welcome, {{ current_user.name }}!</h2>
+                <p class="text-center text-muted">Here's your prediction history and activity</p>
+            </div>
+        </div>
+        
+        <!-- Statistics Cards -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-3">
+                <div class="card text-center shadow-sm border-success">
+                    <div class="card-body">
+                        <h3 class="text-success">{{ crop_history|length }}</h3>
+                        <p class="mb-0">Crop Predictions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card text-center shadow-sm border-warning">
+                    <div class="card-body">
+                        <h3 class="text-warning">{{ fertilizer_history|length }}</h3>
+                        <p class="mb-0">Fertilizer Recommendations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card text-center shadow-sm border-danger">
+                    <div class="card-body">
+                        <h3 class="text-danger">{{ disease_history|length }}</h3>
+                        <p class="mb-0">Disease Detections</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Crop Prediction History -->
+        {% if crop_history %}
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">🌾 Crop Recommendation History</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>City</th>
+                                <th>N-P-K</th>
+                                <th>pH</th>
+                                <th>Rainfall</th>
+                                <th>Prediction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in crop_history %}
+                            <tr>
+                                <td>{{ record.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                                <td>{{ record.city }}</td>
+                                <td>{{ record.nitrogen }}-{{ record.phosphorous }}-{{ record.potassium }}</td>
+                                <td>{{ record.ph }}</td>
+                                <td>{{ record.rainfall }} mm</td>
+                                <td><strong class="text-success">{{ record.prediction }}</strong></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Fertilizer Recommendation History -->
+        {% if fertilizer_history %}
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">🌿 Fertilizer Recommendation History</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Crop</th>
+                                <th>N-P-K</th>
+                                <th>Recommendation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in fertilizer_history %}
+                            <tr>
+                                <td>{{ record.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                                <td>{{ record.crop_name }}</td>
+                                <td>{{ record.nitrogen }}-{{ record.phosphorous }}-{{ record.potassium }}</td>
+                                <td><strong class="text-warning">{{ record.recommendation }}</strong></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Disease Detection History -->
+        {% if disease_history %}
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0">🐞 Disease Detection History</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Image</th>
+                                <th>Disease Detected</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in disease_history %}
+                            <tr>
+                                <td>{{ record.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                                <td>{{ record.image_filename }}</td>
+                                <td><strong class="text-danger">{{ record.disease_name }}</strong></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if not crop_history and not fertilizer_history and not disease_history %}
+        <div class="card shadow-sm text-center py-5">
+            <div class="card-body">
+                <h4 class="text-muted">No predictions yet</h4>
+                <p class="text-muted">Start using our AI-powered tools to get personalized recommendations!</p>
+                <a href="{{ url_for('crop_recommend') }}" class="btn btn-success mr-2">Crop Recommendation</a>
+                <a href="{{ url_for('fertilizer_recommendation') }}" class="btn btn-warning mr-2">Fertilizer Advice</a>
+                <a href="{{ url_for('disease_prediction') }}" class="btn btn-danger">Disease Detection</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
