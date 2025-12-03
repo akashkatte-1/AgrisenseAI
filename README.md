@@ -8,7 +8,7 @@
 - ✅ All predictions stored in MongoDB database
 - ✅ Secure password hashing with bcrypt
 
-#### Original project featured on [Krish Naik's](https://www.youtube.com/channel/UCNU_lfiiWBdtULKOw6X0Dig) YouTube Channel => Check it out [here](https://www.youtube.com/watch?v=zJcSod-L-Ps)
+
 
 ## DISCLAIMER ⚠️
 This is a POC(Proof of concept) kind-of project. The data used here comes up with no guarantee from the creator. So, don't use it for making farming decisions. If you do so, the creator is not responsible for anything. However, this project presents the idea that how we can use ML/DL into precision farming if developed at large scale and with authentic and verified data.
@@ -68,9 +68,7 @@ This is a POC(Proof of concept) kind-of project. The data used here comes up wit
 
 ## DEPLOYMENT 🚀
 
-#### Deployment is done using [deploy](https://github.com/Gladiator07/Harvestify/tree/deploy) branch
 #### This website is deployed at [Heroku](https://www.heroku.com/)
-#### You can access it [here](https://harvestify.herokuapp.com/) (deployed under the original repo name)
 #### Note: The website may take a minute to load sometimes, as the server may be in hibernate state
 
 ## How to use 💻
@@ -180,10 +178,6 @@ mongodb+srv://rohit:rohit@cluster0.zeovrje.mongodb.net/?appName=Cluster0
 ![demo](https://media.giphy.com/media/NnMwEp2tGZdfnJbyjr/giphy.gif)
 
 
-
-## Contribute 👨‍💻
-Please read [CONTRIBUTING.md](https://github.com/Gladiator07/Harvestify/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Usage ⚙️
 You can use this project for further developing it and adding your work in it. If you use this project, kindly mention the original source of the project and mention the link of this repo in your report.
 
@@ -195,13 +189,3 @@ This was my first big project so there are lot of things to improve upon
 - More data can be collected manually via web scrapping to make the system more accurate :monocle_face:	
 - Additional plant images can be collected to make the disease detection part more robust and generalized :face_with_head_bandage:
 - Modularized code can be written instead of writing in Jupyter Notebooks (will follow this in upcoming projects)
-
-## Credits 💳
-This project is heavily inspired from **[this GitHub repository](https://github.com/7NNS7/Recommendation-System-for-Farming)** (especially the crop recommendation and fertilizer recommendation part). This project is an extended version of the above mentioned project. Please star the mentioned repo.
-
-## License 📝
-This project is licensed under [GNU (GENERAL PUBLIC LICENSE)](https://github.com/Gladiator07/Harvestify/blob/master/LICENSE).
-
-## Contact 📞
-
-#### If you have any doubt or want to contribute feel free to email me or hit me up on [LinkedIn](https://www.linkedin.com/in/atharva-ingle-564430187/)
