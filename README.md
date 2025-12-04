@@ -135,7 +135,7 @@ All user data and predictions are securely stored in MongoDB:
 
 **Database Connection:** MongoDB Atlas Cloud Database
 ```
-mongodb+srv://rohit:rohit@cluster0.zeovrje.mongodb.net/?appName=Cluster0
+mongodb+srv://user:password@cluster0.zeovrje.mongodb.net/?appName=Cluster0
 ```
 
 ### Navigation System
